@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <img src="{{ product.image }}" height="80%" width="50%" />
+
+      <div class="cartbutton">
+        <!-- <a routerLink="/cart/{{list.id}}" class="btn btn-primary">Add to Cart</a> -->
+
+        
+          <a
+            [routerLink]="'/cart-details/' + product.id"
+            (click)="addToCart()"
+            class="btn btn-primary"
+            >Add to Cart</a
+          >
+        
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+
+          <h6>category {{ product.category | uppercase }}</h6>
+
+          <div>
+            <h6 class="card-subtitle mb-2 text-muted">
+              {{ product.price | currency : "₹" : true }} | Rating
+              {{ product.rating }}
+            </h6>
+          </div>
+          <p class="card-text">
+            {{ product.description }}
+          </p>
+          <!-- <a href="#" class="card-link btn btn-primary">Card link</a>
+          <a href="#" class="card-link btn btn-primary">Another link</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

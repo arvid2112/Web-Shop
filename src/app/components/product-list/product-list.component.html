@@ -1,0 +1,58 @@
+<p>
+    <input 
+    #query
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search..">
+</p>
+
+
+
+
+
+<!-- <div class="row">
+    <ng-container *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 5, currentPage: p }; let i= index">
+        <div class="col">
+            <div class="card" style="width: 15rem;">
+                <a routerLink="/product/{{product.id}}"> <img [src]="product.image" alt="Card image cap" class="card-img-top"></a>
+                <div class="card-body">
+                    <h4 class="card-title">{{product.title}}</h4>
+                    <p class="card-text">{{product.price | currency: '₹': true}}</p>
+                    <div class="text-center"><a routerLink="/product/{{product.id}}" class="btn btn-primary fas fa-eye">Details</a></div>
+                    <a routerLink="/cart/{{product.id}}" class="btn btn-primary">Add to Cart</a> -->
+                <!-- </div>
+            </div>
+        </div>
+        <div *ngIf="(i+1) % 2 === 0" class="w-100"></div> -->
+
+    <!-- </ng-container>
+    <pagination-controls 
+    (pageChange)="p = $event" 
+    class="float-right">
+    </pagination-controls> -->
+<!-- </div> -->
+
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Product Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active" *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 5, currentPage: p }; let i= index">
+        
+        <td><a routerLink="/product/{{product.id}}"> <img [src]="product.image" alt="Card image cap" class="card-img-top" style="width: 200px; height: 200px;"></a></td>
+        <td>{{product.title}}</td>
+        <td>{{product.price | currency: '₹': true}}</td>
+        <td><a routerLink="/product/{{product.id}}" class="btn btn-primary fas fa-eye">Details</a></td>
+      </tr>
+      
+    </tbody>
+    <pagination-controls 
+    (pageChange)="p = $event" 
+    class="float-right">
+    </pagination-controls>
+  </table>
